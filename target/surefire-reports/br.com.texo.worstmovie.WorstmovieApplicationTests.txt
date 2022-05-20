@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: br.com.texo.worstmovie.WorstmovieApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.432 s - in br.com.texo.worstmovie.WorstmovieApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.195 s - in br.com.texo.worstmovie.WorstmovieApplicationTests

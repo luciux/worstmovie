@@ -5,12 +5,21 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import org.springframework.context.annotation.Bean;
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
+import br.com.texo.worstmovie.app.movielist.entities.MovieEntity;
+import br.com.texo.worstmovie.app.movielist.repositories.MovieListRepositoty;
+import lombok.AllArgsConstructor;
+
 @Configuration
+@AllArgsConstructor
 public class LoadMoviesFromCsv {
-    Class clazz = LoadMoviesFromCsv.class;
+
+    @Autowired
+    private MovieListRepositoty movieRepository;
 
     private String readFromInputStream(InputStream inputStream)
             throws IOException {
@@ -24,10 +33,31 @@ public class LoadMoviesFromCsv {
         return resultStringBuilder.toString();
     }
 
-    @Bean
     public String getMovieListFromCsv() throws IOException {
+        Class clazz = LoadMoviesFromCsv.class;
         InputStream input = clazz.getResourceAsStream("/csv/movielist.csv");
         String result = readFromInputStream(input);
         return result;
+    }
+
+    @PostConstruct
+    public void saveFromCsvToMem() throws IOException {
+        String[] movies = getMovieListFromCsv().split("\n");
+        Boolean alreadySkippedTitle = false;
+        for (String movie : movies) {
+            if (alreadySkippedTitle) {
+                String[] splitStringMovie = movie.split(";");
+                MovieEntity movieEntity = new MovieEntity();
+                movieEntity.setYear(Integer.valueOf(splitStringMovie[0]));
+                movieEntity.setTitle(splitStringMovie[1]);
+                movieEntity.setStudios(splitStringMovie[2]);
+                movieEntity.setProducers(splitStringMovie[3]);
+                if (splitStringMovie.length > 4)
+                    movieEntity.setWinners(splitStringMovie[4]);
+                movieRepository.save(movieEntity);
+            } else
+                alreadySkippedTitle = true;
+
+        }
     }
 }
