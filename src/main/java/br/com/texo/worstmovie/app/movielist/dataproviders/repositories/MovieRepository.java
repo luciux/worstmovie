@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.com.texo.worstmovie.app.movielist.dataproviders.entities.MovieModel;
 
 @Repository
-public interface MovieListRepositoty extends JpaRepository<MovieModel, Long> {
+public interface MovieRepository extends JpaRepository<MovieModel, Long> {
 
 }

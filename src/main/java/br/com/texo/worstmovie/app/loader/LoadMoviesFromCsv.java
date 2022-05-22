@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
 import br.com.texo.worstmovie.app.movielist.dataproviders.entities.MovieModel;
-import br.com.texo.worstmovie.app.movielist.dataproviders.repositories.MovieListRepositoty;
+import br.com.texo.worstmovie.app.movielist.dataproviders.repositories.MovieRepository;
 import lombok.AllArgsConstructor;
 
 @Configuration
@@ -19,7 +19,7 @@ import lombok.AllArgsConstructor;
 public class LoadMoviesFromCsv {
 
     @Autowired
-    private MovieListRepositoty movieRepository;
+    private MovieRepository movieRepository;
 
     private String readFromInputStream(InputStream inputStream)
             throws IOException {

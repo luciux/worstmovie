@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import br.com.texo.worstmovie.app.movielist.dataproviders.converters.ConvertMovieListModelToEntity;
-import br.com.texo.worstmovie.app.movielist.dataproviders.repositories.MovieListRepositoty;
+import br.com.texo.worstmovie.app.movielist.dataproviders.repositories.MovieRepository;
 import br.com.texo.worstmovie.domain.movielist.entities.MovieDto;
 import br.com.texo.worstmovie.domain.movielist.providers.MovieListDataProvider;
 
@@ -17,7 +17,7 @@ import br.com.texo.worstmovie.domain.movielist.providers.MovieListDataProvider;
 public class MovieListProvider implements MovieListDataProvider {
 
     @Autowired
-    MovieListRepositoty movieListRepositoty;
+    MovieRepository movieRepository;
 
     @Autowired
     ConvertMovieListModelToEntity convertMovieListModelToEntity;
@@ -25,11 +25,10 @@ public class MovieListProvider implements MovieListDataProvider {
     @Override
     public List<MovieDto> findMovieList() {
         List<MovieDto> movieListDto = new ArrayList<>();
-        movieListRepositoty.findAll().forEach(e -> {
+        movieRepository.findAll().forEach(e -> {
             movieListDto.add(convertMovieListModelToEntity.convert(e));
         });
 
         return movieListDto;
     }
-
 }
