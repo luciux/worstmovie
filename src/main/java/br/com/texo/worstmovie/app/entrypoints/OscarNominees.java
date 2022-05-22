@@ -18,7 +18,12 @@ public class OscarNominees {
 
     @GetMapping("/get-worst-movies-list")
     public ResponseEntity<MovieResultDto> producerWithLongerTimePeriodBetweenTwoOscars() {
+        MovieResultDto movieResult = findMovieList.execute();
 
-        return ResponseEntity.ok().body(findMovieList.execute());
+        if (movieResult.getMax() == null && movieResult.getMin() == null)
+            return ResponseEntity.noContent().build();
+        else
+            return ResponseEntity.ok().body(movieResult);
+
     }
 }

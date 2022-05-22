@@ -2,12 +2,14 @@ c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\w
 c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\domain\movielist\providers\MovieListDataProvider.java
 c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\domain\movielist\services\List.java
 c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\domain\movielist\usecases\LongerTimePeriodBetweenTwoOscarsUseCase.java
+c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\app\movielist\dataproviders\repositories\MovieRepository.java
 c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\domain\movielist\services\FindMovieListService.java
 c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\domain\movielist\usecases\ShorterTimePeriodBetweenTwoOscarsUseCase.java
 c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\app\movielist\dataproviders\converters\ConverterBase.java
 c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\domain\movielist\enumerators\WinnersEnum.java
 c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\WorstmovieApplication.java
 c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\app\movielist\dataproviders\entities\MovieModel.java
+c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\app\entrypoints\ResponseResult.java
 c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\app\loader\LoadMoviesFromCsv.java
 c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\domain\movielist\usecases\FindMovieListUseCase.java
 c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\domain\movielist\entities\MovieResultFieldsDto.java
@@ -17,7 +19,6 @@ c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\w
 c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\app\movielist\dataproviders\MovieListProvider.java
 c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\domain\movielist\entities\MovieDto.java
 c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\app\entrypoints\OscarNominees.java
-c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\app\movielist\dataproviders\repositories\MovieListRepositoty.java
 c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\app\movielist\dataproviders\converters\ConvertMovieListModelToEntity.java
 c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\domain\movielist\services\CreateMovieResultFieldsService.java
 c:\Users\l_u_c\OneDrive\Documentos\texoit\worstmovie\src\main\java\br\com\texo\worstmovie\domain\movielist\entities\MovieResultDto.java
