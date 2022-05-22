@@ -1,5 +1,7 @@
 package br.com.texo.worstmovie.app.entrypoints;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +22,8 @@ public class OscarNominees {
     public ResponseEntity<MovieResultDto> producerWithLongerTimePeriodBetweenTwoOscars() {
         MovieResultDto movieResult = findMovieList.execute();
 
-        if (movieResult.getMax() == null && movieResult.getMin() == null)
+        if ((Optional.ofNullable(movieResult.getMax()).isEmpty() || movieResult.getMax().size() == 0) &&
+                (Optional.ofNullable(movieResult.getMin()).isEmpty() || movieResult.getMin().size() == 0))
             return ResponseEntity.noContent().build();
         else
             return ResponseEntity.ok().body(movieResult);
