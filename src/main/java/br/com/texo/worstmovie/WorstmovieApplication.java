@@ -6,8 +6,9 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EntityScan(" br.com.texo.worstmovie.app.movielist.entities")
-@EnableJpaRepositories("br.com.texo.worstmovie.app.movielist.repositories")
+@EntityScan("br.com.texo.worstmovie")
+@EnableJpaRepositories("br.com.texo.worstmovie.app")
+
 public class WorstmovieApplication {
 
 	public static void main(String[] args) {

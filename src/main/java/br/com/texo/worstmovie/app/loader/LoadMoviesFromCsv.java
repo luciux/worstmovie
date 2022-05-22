@@ -10,8 +10,8 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
-import br.com.texo.worstmovie.app.movielist.entities.MovieEntity;
-import br.com.texo.worstmovie.app.movielist.repositories.MovieListRepositoty;
+import br.com.texo.worstmovie.app.movielist.dataproviders.entities.MovieModel;
+import br.com.texo.worstmovie.app.movielist.dataproviders.repositories.MovieListRepositoty;
 import lombok.AllArgsConstructor;
 
 @Configuration
@@ -47,7 +47,7 @@ public class LoadMoviesFromCsv {
         for (String movie : movies) {
             if (alreadySkippedTitle) {
                 String[] splitStringMovie = movie.split(";");
-                MovieEntity movieEntity = new MovieEntity();
+                MovieModel movieEntity = new MovieModel();
                 movieEntity.setYear(Integer.valueOf(splitStringMovie[0]));
                 movieEntity.setTitle(splitStringMovie[1]);
                 movieEntity.setStudios(splitStringMovie[2]);
