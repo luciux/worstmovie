@@ -1,5 +1,7 @@
 package br.com.texo.worstmovie.app.entrypoints;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -34,9 +36,15 @@ public class OscarNomineesIntegrationTest {
                 });
 
         Assertions.assertThat(movieList).isNotNull();
-
         Assertions.assertThat(movieList.getBody().getMax()).isNotNull();
         Assertions.assertThat(movieList.getBody().getMin()).isNotNull();
-    }
 
+        for (var movie : movieList.getBody().getMin()) {
+            assertEquals(movie.getInterval(), movie.getFollowingWin() - movie.getPreviousWin());
+        }
+
+        for (var movie : movieList.getBody().getMax()) {
+            assertEquals(movie.getInterval(), movie.getFollowingWin() - movie.getPreviousWin());
+        }
+    }
 }
