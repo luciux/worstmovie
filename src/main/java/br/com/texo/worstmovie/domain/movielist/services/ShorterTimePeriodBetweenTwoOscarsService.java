@@ -46,16 +46,16 @@ public class ShorterTimePeriodBetweenTwoOscarsService implements ShorterTimePeri
 
                 for (String pb : producerBegin) {
                     for (String pe : producerEnd) {
-                        if (pb.equals(pe)) {
+                        if (pb.trim().equals(pe.trim())) {
                             Integer oscarInterval = filteredMovies.get(cont).getYear()
                                     - filteredMovies.get(i).getYear();
                             if (oscarInterval > 0 && oscarInterval < interval) {
                                 result.clear();
                                 interval = oscarInterval;
-                                result.add(createMovieResultFields.execute(pb, filteredMovies.get(i),
+                                result.add(createMovieResultFields.execute(pb.trim(), filteredMovies.get(i),
                                         filteredMovies.get(cont)));
                             } else if (oscarInterval > 0 && oscarInterval.equals(interval)) {
-                                result.add(createMovieResultFields.execute(pb, filteredMovies.get(i),
+                                result.add(createMovieResultFields.execute(pb.trim(), filteredMovies.get(i),
                                         filteredMovies.get(cont)));
                             }
                         }

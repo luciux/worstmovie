@@ -47,10 +47,10 @@ public class OscarNomineesIntegrationTest {
         }
 
         for (var movie : movieList.getBody().getMax()) {
-            assertEquals("Buzz Feitshans", movie.getProducer());
-            assertEquals(9, movie.getInterval());
-            assertEquals(1985, movie.getPreviousWin());
-            assertEquals(1994, movie.getFollowingWin());
+            assertEquals("Matthew Vaughn", movie.getProducer());
+            assertEquals(13, movie.getInterval());
+            assertEquals(2002, movie.getPreviousWin());
+            assertEquals(2015, movie.getFollowingWin());
         }
     }
 }
