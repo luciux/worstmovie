@@ -40,11 +40,17 @@ public class OscarNomineesIntegrationTest {
         Assertions.assertThat(movieList.getBody().getMin()).isNotNull();
 
         for (var movie : movieList.getBody().getMin()) {
-            assertEquals(movie.getInterval(), movie.getFollowingWin() - movie.getPreviousWin());
+            assertEquals("Joel Silver", movie.getProducer());
+            assertEquals(1, movie.getInterval());
+            assertEquals(1990, movie.getPreviousWin());
+            assertEquals(1991, movie.getFollowingWin());
         }
 
         for (var movie : movieList.getBody().getMax()) {
-            assertEquals(movie.getInterval(), movie.getFollowingWin() - movie.getPreviousWin());
+            assertEquals("Buzz Feitshans", movie.getProducer());
+            assertEquals(9, movie.getInterval());
+            assertEquals(1985, movie.getPreviousWin());
+            assertEquals(1994, movie.getFollowingWin());
         }
     }
 }

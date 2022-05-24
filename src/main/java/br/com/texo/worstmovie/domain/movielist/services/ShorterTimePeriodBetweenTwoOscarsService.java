@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import br.com.texo.worstmovie.domain.movielist.entities.MovieDto;
 import br.com.texo.worstmovie.domain.movielist.entities.MovieResultFieldsDto;
 import br.com.texo.worstmovie.domain.movielist.usecases.CreateMovieResultFieldsUseCase;
+import br.com.texo.worstmovie.domain.movielist.usecases.GetProducerNameUseCase;
 import br.com.texo.worstmovie.domain.movielist.usecases.ShorterTimePeriodBetweenTwoOscarsUseCase;
 
 @Component
@@ -21,6 +22,9 @@ public class ShorterTimePeriodBetweenTwoOscarsService implements ShorterTimePeri
 
     @Autowired
     CreateMovieResultFieldsUseCase createMovieResultFields;
+
+    @Autowired
+    GetProducerNameUseCase getProducerName;
 
     @Override
     public List<MovieResultFieldsDto> execute(List<MovieDto> movies) {
@@ -37,16 +41,27 @@ public class ShorterTimePeriodBetweenTwoOscarsService implements ShorterTimePeri
 
         for (Integer i = 0; i < filteredMovies.size() - 1; i++) {
             for (Integer cont = i + 1; cont < filteredMovies.size(); cont++) {
-                Boolean sameProducer = filteredMovies.get(i).getProducers()
-                        .equals(filteredMovies.get(cont).getProducers());
-                Integer oscarInterval = filteredMovies.get(cont).getYear() - filteredMovies.get(i).getYear();
-                if (sameProducer && (oscarInterval > 0 && oscarInterval < interval)) {
-                    result.clear();
-                    interval = oscarInterval;
-                    result.add(createMovieResultFields.execute(filteredMovies.get(i), filteredMovies.get(cont)));
-                } else if (sameProducer && (oscarInterval > 0 && oscarInterval.equals(interval))) {
-                    result.add(createMovieResultFields.execute(filteredMovies.get(i), filteredMovies.get(cont)));
+                String[] producerBegin = getProducerName.execute(filteredMovies.get(i).getProducers());
+                String[] producerEnd = getProducerName.execute(filteredMovies.get(cont).getProducers());
+
+                for (String pb : producerBegin) {
+                    for (String pe : producerEnd) {
+                        if (pb.equals(pe)) {
+                            Integer oscarInterval = filteredMovies.get(cont).getYear()
+                                    - filteredMovies.get(i).getYear();
+                            if (oscarInterval > 0 && oscarInterval < interval) {
+                                result.clear();
+                                interval = oscarInterval;
+                                result.add(createMovieResultFields.execute(pb, filteredMovies.get(i),
+                                        filteredMovies.get(cont)));
+                            } else if (oscarInterval > 0 && oscarInterval.equals(interval)) {
+                                result.add(createMovieResultFields.execute(pb, filteredMovies.get(i),
+                                        filteredMovies.get(cont)));
+                            }
+                        }
+                    }
                 }
+
             }
         }
         return result;

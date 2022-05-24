@@ -12,10 +12,10 @@ import br.com.texo.worstmovie.domain.movielist.usecases.CreateMovieResultFieldsU
 public class CreateMovieResultFieldsService implements CreateMovieResultFieldsUseCase {
 
     @Override
-    public MovieResultFieldsDto execute(MovieDto movieInitial, MovieDto movieFinal) {
+    public MovieResultFieldsDto execute(String producerName, MovieDto movieInitial, MovieDto movieFinal) {
         MovieResultFieldsDto movieResultFieldsDto = new MovieResultFieldsDto();
 
-        movieResultFieldsDto.setProducer(movieInitial.getProducers());
+        movieResultFieldsDto.setProducer(producerName);
         movieResultFieldsDto.setInterval(movieFinal.getYear() - movieInitial.getYear());
         movieResultFieldsDto.setPreviousWin(movieInitial.getYear());
         movieResultFieldsDto.setFollowingWin(movieFinal.getYear());
