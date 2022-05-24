@@ -1,14 +1,12 @@
 package br.com.texo.worstmovie.domain.movielist.services;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Producer;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
